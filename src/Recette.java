@@ -6,11 +6,13 @@ public abstract class Recette {
     ArrayList<Resource> tab_in;
     ArrayList<int> qt_in;
     Building producers;
+    int time;
     
-    public Recette(String name,Building prod)
+    public Recette(String name,Building prod, int t)
     {
         this.name=name;
         this.producers=prod;
+        this.time = t;
         tab_in = new ArrayList<Resource>();
         qt_in = new ArrayList<int>();
     }
