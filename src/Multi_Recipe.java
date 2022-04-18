@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Multi_Recipe {
+public class Multi_Recipe extends Recette{
     
     ArrayList<Resource> tab_out;
     ArrayList<int> qt_out;
