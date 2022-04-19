@@ -15,6 +15,6 @@ public class Central extends CentralRE {
     }
     public String toString()
     {
-        return;
+        return super.toString() +"category : " + category + " Fuel: "+fuel;
     }
 }
