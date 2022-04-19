@@ -28,5 +28,14 @@ public class Fuel extends Component  implements IsFuel {
         }
         return  "Nom : "+ name+ ", Categorie " + category + ", value" +value + "Liste extracteur : "+s ;
     }
+
+    public int getValue()
+    {
+        return value;
+    } 
+    public String getCategory()
+    {
+        return category;
+    }
     
 }

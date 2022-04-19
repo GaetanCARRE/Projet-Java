@@ -22,4 +22,14 @@ public class ResourceFuel extends Resource implements IsFuel{
     {
         return super.toString() + ", categorie " +category + ", valeur " +value;
     }
+
+    public int getValue()
+    {
+        return value;
+    }
+
+    public String getCategory()
+    {
+        return category;
+    }
 }
