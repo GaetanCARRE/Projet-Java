@@ -11,7 +11,7 @@ public class Fuel extends Component  implements IsFuel {
         category =c;
         value =v;
         if( ! testCategory())
-            throw CategoryException("La categorie ne correspond à celle d'un carburant.");
+            throw new CategoryException("La categorie ne correspond à celle d'un carburant.");
 
     }
     public boolean testCategory()
