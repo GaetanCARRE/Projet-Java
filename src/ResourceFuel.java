@@ -3,11 +3,13 @@ public class ResourceFuel extends Resource implements IsFuel{
     private String category;
     private int value;
 
-    public ResourceFuel(String name, Extractor e, String c, int v)
+    public ResourceFuel(String name, Extractor e, String c, int v) throws CategoryException
     {
         super(name,e);
         category = c;
         value = v;
+        if(!testCategory())
+ )           throw new CategoryException("la categorie ne correspond pas à celle d'un carburant.");
     }
     public boolean testCategory()
     {
