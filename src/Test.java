@@ -46,29 +46,29 @@ public class MainTest {
 					Element element = (Element) node;
 					//Quand le tag lu est unique pour l'objet, on peut faire ainsi
 					String category = element.getElementsByTagName("category").item(0).getTextContent();
-          switch(category)
-          {
-            case "buildings":
-              
-              break;
-            case "resource":
-              if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
-              {
-                C.add(new Resource(element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("fuel").item(0).getTextContent())
-              }
-              else
-              {}
-              break;
-            case "components":
-              if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
-              {
-                C.add(new Component(element.getElementsByTagNames("id").item(0).getTextContent());
-              }
-              break;
-            case "
-          }
-					String name = element.getElementsByTagName("name").item(0).getTextContent();
-					System.out.println(category + " -- " + name);
+					switch(category)
+					{
+						case "buildings":
+							if(element.getElementsByTagNames("mining").item(0).getTextContent().equals(null) && element.getElementsByTagNames("factory").item(0).getTextContent().equals(null))
+								C.add(new Building())
+								
+							break;
+						case "resource":
+							if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
+							{
+								C.add(new Resource(element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("fuel").item(0).getTextContent()));
+							}
+							else
+							{}
+							break;
+						case "components":
+							if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
+							{
+								C.add(new Component(element.getElementsByTagNames("id").item(0).getTextContent()));
+							}
+							break;
+					}
+					
 				}
 			}
 		}
