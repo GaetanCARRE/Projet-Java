@@ -10,6 +10,6 @@ public class Resource extends Component {
 
     public String toString()
     {
-        return "Nom : "+name+ " " + extractor;
+        return "Nom : "+super.getName()+ " " + extractor;
     }
 }
