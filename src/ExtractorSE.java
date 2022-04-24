@@ -11,7 +11,7 @@ public class ExtractorSE extends Building {
     }
     public void addr(Resource r)
     {
-        if(tabr.size<1)
+        if(tabr.size()<1)
             tabr.add(r);
            
     }
