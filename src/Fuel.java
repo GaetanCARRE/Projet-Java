@@ -5,14 +5,19 @@ public class Fuel extends Component  implements IsFuel {
     private int value;
     ArrayList<Extractor> tabE;
 
-    public Fuel(String name, int v, String c) throws CategoryException
+    public Fuel(String id, String name, int v, String c) throws CategoryException
     {
-        super(name);
+        super(id,name);
         category =c;
         value =v;
+        tabE = new ArrayList<Extractor>();
         if( ! testCategory())
             throw new CategoryException("La categorie ne correspond à celle d'un carburant.");
 
+    }
+    public void addE(Extractor E)
+    {
+        tabE.add(E);
     }
     public boolean testCategory()
     {
