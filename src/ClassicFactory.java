@@ -3,8 +3,8 @@ public class ClassicFactory extends Building {
     int usage;
     int drain;
 
-    public ClassicFactory(int u, int d, int s, String name) throws ConsommationException{
-        super(name);
+    public ClassicFactory(String id, String name, int u, int d, int s) throws ConsommationException{
+        super(id,name);
         if(drain > usage)
             throw new ConsommationException("L'usine consomme plus au repos qu'au travail!");
         usage = u;
@@ -13,8 +13,8 @@ public class ClassicFactory extends Building {
 
     }
 
-    public ClassicFactory(int u, int d, String name) {
-        super(name);
+    public ClassicFactory(String id,String name, int u, int d) {
+        super(id,name);
         usage = u;
         drain = d;
         speed = 1;
