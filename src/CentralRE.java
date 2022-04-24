@@ -3,9 +3,9 @@ public class Central_RE
   protected String type;
   protected int value;
 
-  public Central_RE(String name, String t, int v)
+  public Central_RE(String id, String name, String t, int v)
   {
-    super(name);
+    super(id,name);
     type = t;
     value = v;
   }
