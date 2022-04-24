@@ -2,9 +2,9 @@ public class Resource extends Component {
 
     private Extractor extractor;
 
-    public Resource(String name, Extractor extractor)
+    public Resource(String id, String name, Extractor extractor)
     {
-        super(name);
+        super(id,name);
         this.extractor = extractor;
     }
 
