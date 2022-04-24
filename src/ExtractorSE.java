@@ -1,12 +1,19 @@
 public class ExtractorSE extends Building {
     private int speed;
-    private Resource r;
+    private ArrayList<Resource> tabr;
 
-    public ExtractorSE(int s, Resource r, String name) {
-        super(name);
+    public ExtractorSE(String id, String name, int s) {
+        super(id,name);
         speed = s;
-        this.r=r;
+        /*this.r=r;*/
+        tabr = new ArrayList<Resource>();
 
+    }
+    public void addr(Resource r)
+    {
+        if(tabr.size<1)
+            tabr.add(r);
+           
     }
 
     public String toString() {
