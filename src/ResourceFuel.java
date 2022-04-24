@@ -3,9 +3,9 @@ public class ResourceFuel extends Resource implements IsFuel{
     private String category;
     private int value;
 
-    public ResourceFuel(String name, Extractor e, String c, int v) throws CategoryException
+    public ResourceFuel(String id, String name, /*Extractor e,*/ String c, int v) throws CategoryException
     {
-        super(name,e);
+        super(id,name/*,e*/);
         category = c;
         value = v;
         if(!testCategory())
