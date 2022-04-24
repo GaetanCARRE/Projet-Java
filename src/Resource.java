@@ -9,8 +9,7 @@ public class Resource extends Component {
     }
     public void addE(Extractor E)
     {
-        if(tabE.size()<1)
-            tabE.add(E);
+        tabE.add(E);
     }
 
     public String toString()
