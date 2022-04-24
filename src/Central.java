@@ -2,9 +2,9 @@ public class Central extends CentralRE {
 
     private IsFuel fuel;
     private String category;
-    public Central(IsFuel fuel,String name,String t,int v, String c) throws DiffCategoryException, CategoryException
+    public Central(IsFuel fuel,String id, String name,String t,int v, String c) throws DiffCategoryException, CategoryException
     {
-        super(name,t,v);
+        super(id,name,t,v);
         this.fuel = fuel;
         this.category = c;
         if(!testCategory())
