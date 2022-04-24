@@ -1,14 +1,14 @@
 public class Building extends Component {
     
 
-    public Building(String name)
+    public Building(String id, String name)
     {
-        super(name);
+        super(id,name);
 
     }
 
     public String toString()
     {
-        return "Batiment : " + name;
+        return "Batiment ID : " + super.getId()+", nom : "+super.getNom();
     }
 }
