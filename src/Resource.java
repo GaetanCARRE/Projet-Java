@@ -1,11 +1,16 @@
 public class Resource extends Component {
 
-    private Extractor extractor;
+    private ArrayList<Extractor> tabE; /*choix d'utiliser l'ArrayList pour pouvoir réaliser les liens de notre diagramme de classe apres creation des objets*/
 
-    public Resource(String id, String name, Extractor extractor)
+    public Resource(String id, String name)
     {
         super(id,name);
-        this.extractor = extractor;
+        tabE = new ArrayList<Extractor>();
+    }
+    public void addE(Extractor E)
+    {
+        if(tabE.size()<1)
+            tabE.add(E);
     }
 
     public String toString()
