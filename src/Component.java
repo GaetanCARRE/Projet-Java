@@ -1,11 +1,12 @@
 public class Component {
-    private int id;
+    private String id;
     private String name;
-    private static int cpt = 0;
+    /*private static int cpt = 0;*/
 
-    public Component(String name) {
+    public Component(String id,String name) {
         this.name = name;
-        id = cpt++;
+        this.id = id;
+        /*id = cpt++;*/
     }
 
     public String toString()
@@ -17,7 +18,7 @@ public class Component {
     {
         return name;
     }
-    public int getId()
+    public String getId()
     {
         return id;
     }
