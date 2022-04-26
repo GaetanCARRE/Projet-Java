@@ -5,13 +5,19 @@ public class Central extends CentralRE {
     public Central(IsFuel fuel,String id, String name,String t,int v, String c) throws DiffCategoryException, CategoryException
     {
         super(id,name,t,v);
-        this.fuel = fuel;
+        this.fuel = null; /*on part du principe que l'on ne connait pas le carburant à la construction de la centrale*/
         this.category = c;
         if(!testCategory())
             throw new CategoryException("la categorie de la centrale ne correspond pas à celle d'un carburant.");
+        
+    }
+    public void SetFuel(IsFuel f)
+    {
+        this.fuel = f;
         if (!fuel.getCategory().equals(c))
             throw new DiffCategoryException("La categorie de la centrale ne correspond pas à celle du carburant.");
         
+    
     }
 
      public boolean testCategory()
