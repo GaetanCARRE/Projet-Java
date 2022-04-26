@@ -49,8 +49,32 @@ public class MainTest {
 					switch(category)
 					{
 						case "buildings":
-							if(element.getElementsByTagNames("mining").item(0).getTextContent().equals(null) && element.getElementsByTagNames("factory").item(0).getTextContent().equals(null))
-								C.add(new Building())
+							String mining = element.getElementsByTagNames("mining").item(0).getTextContent();
+							String factory = element.getElementsByTagNames("factory").item(0).getTextContent();
+							if(mining.equals(null) && factory.equals(null))
+								C.add(new Building(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent()));
+							if((!mining.equals(null))&&(factroy.equals(null)))
+							{
+								if(element.getElementsByTagNames("value").item(0).getTextContent().equals(null)){
+									C.add(new ExtractorSE(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Double.parseDouble(element.getElemensByTagNames("speed").item(0).getTextContent())));
+								}
+								else
+								{
+									if(element.getElementsByTagNames("category").item(0).getTextContent().equals(null))
+										C.add(new CentralRE(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("value").item(0).getTextContent())));
+									else //String id, String name,String t,int v, String c
+										C.add(new Central(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("type").item(0).getTextContent(),Integer.paseInt(element.getElementsByTagNames("value").item(0).getTextContent()),element.getElementsByTagNames("category").item(0).getTextContent()))
+								
+								}
+							}
+							if((mining.equals(null))&&(!factory.equals(null))){
+								if(element.getElementsByTagNames("speed").getLength() ==0)
+									C.add(new ClassicFactory(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagNames("drain").item(0).getTextContent())));
+								if(element.getElementsByTagNames("speed").getLength() ==1)
+									C.add(new ClassicFactory(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagNames("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagNames("speed").item(0).getTextContent())));
+							}
+							if((!mining.equals(null))&&(!factory.equals(null)))
+								C.add(new Extractor(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagNames("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagNames("speed").item(0).getTextContent())));
 								
 							break;
 						case "resource":
