@@ -1,4 +1,4 @@
-public class Central_RE
+public class Central_RE extends Building
 {
   protected String type;
   protected int value;
