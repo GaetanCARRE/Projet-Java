@@ -88,7 +88,7 @@ public class MainTest {
 						case "components":
 							if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
 							{
-								C.add(new Component(element.getElementsByTagNames("id").item(0).getTextContent()));
+								C.add(new Component(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent());
 							}
 							break;
 					}
