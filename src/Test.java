@@ -10,20 +10,21 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
+import java.util.ArrayList;
 
 
 
 //Merci a ce site pour l'aide : https://mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
 //ainsi qu'a stackoverflow evidemment, comme toujours... !
 
-public class MainTest {
+public class Test {
 	
 	private static final String FILENAME = "data.xml";
 
 	public static void main(String[] args)
   {
-    ArrayList<Component> C = new ArrayList<Component>()
+    ArrayList<Component> C = new ArrayList<Component>();
+	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     try 
 		{
 			// parse XML file
@@ -49,46 +50,46 @@ public class MainTest {
 					switch(category)
 					{
 						case "buildings":
-							String mining = element.getElementsByTagNames("mining").item(0).getTextContent();
-							String factory = element.getElementsByTagNames("factory").item(0).getTextContent();
+							String mining = element.getElementsByTagName("mining").item(0).getTextContent();
+							String factory = element.getElementsByTagName("factory").item(0).getTextContent();
 							if(mining.equals(null) && factory.equals(null))
-								C.add(new Building(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent()));
-							if((!mining.equals(null))&&(factroy.equals(null)))
+								C.add(new Building(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
+							if((!mining.equals(null))&&(factory.equals(null)))
 							{
-								if(element.getElementsByTagNames("value").item(0).getTextContent().equals(null)){
-									C.add(new ExtractorSE(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Double.parseDouble(element.getElemensByTagNames("speed").item(0).getTextContent())));
+								if(element.getElementsByTagName("value").item(0).getTextContent().equals(null)){
+									C.add(new ExtractorSE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
 								else
 								{
-									if(element.getElementsByTagNames("category").item(0).getTextContent().equals(null))
-										C.add(new CentralRE(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("value").item(0).getTextContent())));
+									if(element.getElementsByTagName("category").item(0).getTextContent().equals(null))
+										C.add(new CentralRE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
 									else //String id, String name,String t,int v, String c
-										C.add(new Central(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("type").item(0).getTextContent(),Integer.paseInt(element.getElementsByTagNames("value").item(0).getTextContent()),element.getElementsByTagNames("category").item(0).getTextContent()))
+										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.paseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()))
 								
 								}
 							}
 							if((mining.equals(null))&&(!factory.equals(null))){
-								if(element.getElementsByTagNames("speed").getLength() ==0)
-									C.add(new ClassicFactory(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagNames("drain").item(0).getTextContent())));
-								if(element.getElementsByTagNames("speed").getLength() ==1)
-									C.add(new ClassicFactory(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagNames("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagNames("speed").item(0).getTextContent())));
+								if(element.getElementsByTagName("speed").getLength() ==0)
+									C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent())));
+								if(element.getElementsByTagName("speed").getLength() ==1)
+									C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 							}
 							if((!mining.equals(null))&&(!factory.equals(null)))
-								C.add(new Extractor(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagNames("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagNames("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagNames("speed").item(0).getTextContent())));
+								C.add(new Extractor(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								
 							break;
 						case "resource":
-							if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
+							if(element.getElementsByTagName("fuel").item(0).getTextContent().equals(null))
 							{
-								C.add(new Resource(element.getElementsByTagNames("name").item(0).getTextContent(),element.getElementsByTagNames("fuel").item(0).getTextContent()));
+								C.add(new Resource(element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("fuel").item(0).getTextContent()));
 							}
 							else
 							{}
 							break;
 						case "components":
-							if(element.getElementsByTagNames("fuel").item(0).getTextContent().equals(null))
+							if(element.getElementsByTagName("fuel").item(0).getTextContent().equals(null))
 							{
-								C.add(new Component(element.getElementsByTagNames("id").item(0).getTextContent(),element.getElementsByTagNames("name").item(0).getTextContent());
+								C.add(new Component(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent());
 							}
 							break;
 					}
@@ -102,3 +103,4 @@ public class MainTest {
 		}
   }
 }
+
