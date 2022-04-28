@@ -9,6 +9,6 @@ public class Building extends Component {
 
     public String toString()
     {
-        return "Batiment ID : " + super.getId()+", nom : "+super.getNom();
+        return "Batiment ID : " + super.getId()+", nom : "+super.getName();
     }
 }
