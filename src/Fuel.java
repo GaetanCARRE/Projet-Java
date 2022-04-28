@@ -30,11 +30,11 @@ public class Fuel extends Component  implements IsFuel {
 
     public String toString()
     {
-        String s="\n";
+        /*String s="\n";
         for (Extractor e : tabE) {
             s+= e;
             s+= "\n";
-        }
+        }*/
         return  "Nom : "+ name+ ", Categorie " + category + ", value" +value + "Liste extracteur : "+s ;
     }
 
