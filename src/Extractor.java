@@ -4,7 +4,7 @@ public class Extractor extends ClassicFactory {
     
 
     /*public Extractor(Resource r, int u, int d, int s, String name) {*/
-    public Extractor(String id, String name, int u, int d, int s)
+    public Extractor(String id, String name, int u, int d, double s)
     {
         super(id,name,u,d,s);
         tabr = new ArrayList<Resource>();
