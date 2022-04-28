@@ -1,9 +1,9 @@
-public class Central_RE extends Building
+public class CentralRE extends Building
 {
   protected String type;
   protected int value;
 
-  public Central_RE(String id, String name, String t, int v)
+  public CentralRE(String id, String name, String t, int v)
   {
     super(id,name);
     type = t;

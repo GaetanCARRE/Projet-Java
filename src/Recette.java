@@ -47,6 +47,7 @@ public abstract class Recette {
             s += "- "+tab_out.get(i)+ " "+qt_out.get(i)+"\n";
         
         }
+        return s;
     }
 
 }

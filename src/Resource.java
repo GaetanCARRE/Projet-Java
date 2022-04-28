@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Resource extends Component {
 
     private ArrayList<Extractor> tabE; /*choix d'utiliser l'ArrayList pour pouvoir réaliser les liens de notre diagramme de classe apres creation des objets*/

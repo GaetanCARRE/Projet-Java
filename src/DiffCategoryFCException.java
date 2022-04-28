@@ -1,6 +1,6 @@
 public class DiffCategoryFCException extends Exception
 {
- public DiffCategoryException(String m)
+ public DiffCategoryFCException(String m)
  {
    super(m);
  }

@@ -9,7 +9,7 @@ public class ResourceFuel extends Resource implements IsFuel{
         category = c;
         value = v;
         if(!testCategory())
- )           throw new CategoryException("la categorie ne correspond pas à celle d'un carburant.");
+            throw new CategoryException("la categorie ne correspond pas à celle d'un carburant.");
     }
     public boolean testCategory()
     {

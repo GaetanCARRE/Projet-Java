@@ -1,6 +1,6 @@
 public class Component {
     private String id;
-    private String name;
+    protected String name;
     /*private static int cpt = 0;*/
 
     public Component(String id,String name) {

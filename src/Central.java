@@ -11,11 +11,11 @@ public class Central extends CentralRE {
             throw new CategoryException("la categorie de la centrale ne correspond pas à celle d'un carburant.");
         
     }
-    public void SetFuel(IsFuel f) throws DiffCategoryException
+    public void SetFuel(IsFuel f) throws DiffCategoryFCException
     {
         this.fuel = f;
-        if (!fuel.getCategory().equals(c))
-            throw new DiffCategoryException("La categorie de la centrale ne correspond pas à celle du carburant.");
+        if (!fuel.getCategory().equals(category))
+            throw new DiffCategoryFCException("La categorie de la centrale ne correspond pas à celle du carburant.");
         
     
     }
@@ -30,7 +30,7 @@ public class Central extends CentralRE {
     }
     public int conso()
     {
-        fuel.getValue()/value;
+        return fuel.getValue()/value;
     }
     public String toString()
     {

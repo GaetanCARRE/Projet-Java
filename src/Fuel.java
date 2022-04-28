@@ -35,7 +35,7 @@ public class Fuel extends Component  implements IsFuel {
             s+= e;
             s+= "\n";
         }*/
-        return  "Nom : "+ name+ ", Categorie " + category + ", value" +value + "Liste extracteur : "+s ;
+        return  "Nom : "+ name+ ", Categorie " + category + ", value" +value + "Liste extracteur : "/*+s*/ ;
     }
 
     public int getValue()

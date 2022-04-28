@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class ExtractorSE extends Building {
     private int speed;
     private ArrayList<Resource> tabr;
@@ -17,7 +18,7 @@ public class ExtractorSE extends Building {
     }
 
     public String toString() {
-        return super.toString() +",extrait la ressource "+r+ " à la vitesse " + speed ;
+        return super.toString() +",extrait la ressource "+/*r+*/ " à la vitesse " + speed ;
     }
 
 }
