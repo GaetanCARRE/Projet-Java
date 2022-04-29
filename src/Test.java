@@ -80,17 +80,24 @@ public class Test {
 								
 							break;
 						case "resource":
-							if(element.getElementsByTagName("fuel").item(0).getTextContent().equals(null))
+							String fuel = element.getElementsByTagName("fuel").item(0).getTextContent();
+							if(fuel.equals(null))
 							{
-								C.add(new Resource(element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("fuel").item(0).getTextContent()));
+								C.add(new Resource(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
 							}
 							else
-							{}
+							{
+								C.add(new ResourceFuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("category").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
+							}
 							break;
 						case "components":
 							if(element.getElementsByTagName("fuel").item(0).getTextContent().equals(null))
 							{
 								C.add(new Component(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
+							}
+							else
+							{
+								C.add(new Fuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
 							}
 							break;
 					}
