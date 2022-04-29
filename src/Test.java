@@ -1,3 +1,4 @@
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,7 +22,7 @@ public class Test {
 	
 	private static final String FILENAME = "data.xml";
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws ConsommationException, CategoryException
   {
     ArrayList<Component> C = new ArrayList<Component>();
 	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -57,7 +58,7 @@ public class Test {
 							if((!mining.equals(null))&&(factory.equals(null)))
 							{
 								if(element.getElementsByTagName("value").item(0).getTextContent().equals(null)){
-									C.add(new ExtractorSE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
+									C.add(new ExtractorSE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),(int)Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
 								else
 								{
