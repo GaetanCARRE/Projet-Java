@@ -1,16 +1,17 @@
 import java.util.ArrayList;
 public class Resource extends Component {
 
-    private ArrayList<Extractor> tabE; /*choix d'utiliser l'ArrayList pour pouvoir réaliser les liens de notre diagramme de classe apres creation des objets*/
+    private ArrayList<Building> tabE; /*choix d'utiliser l'ArrayList pour pouvoir réaliser les liens de notre diagramme de classe apres creation des objets*/
 
     public Resource(String id, String name)
     {
         super(id,name);
-        tabE = new ArrayList<Extractor>();
+        tabE = new ArrayList<Building>();
     }
-    public void addE(Extractor E)
+    public void addE(Building E)
     {
-        tabE.add(E);
+        if((E instanceof ExtractorSE)||(E instanceof Exctractor))
+            tabE.add(E);
     }
 
     public String toString()
