@@ -23,10 +23,12 @@ public class Test {
 	private static final String FILENAME = "data.xml";
 
 	public static void main(String[] args) throws ConsommationException, CategoryException
-  {
-    ArrayList<Component> C = new ArrayList<Component>();
-	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-    try 
+	{
+		ArrayList<Component> C = new ArrayList<Component>();
+		ArrayList<Building> B = new ArrayList<Building>();
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		
+		try 
 		{
 			// parse XML file
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -99,6 +101,54 @@ public class Test {
 							{
 								C.add(new Fuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
 							}
+							break;
+					}
+					
+				}
+			}
+			/*deuxieme for où l'on réalise les liaisons représenter sur notre diagramme de classe*/
+			for (int temp = 0; temp < list.getLength(); temp++) 
+			{
+				Node node = list.item(temp);
+
+				if(node.getNodeType() == Node.ELEMENT_NODE) 
+				{
+					//On regarde le nom et la categorie du composant, et on les affiche
+					Element element = (Element) node;
+					//Quand le tag lu est unique pour l'objet, on peut faire ainsi
+					String category = element.getElementsByTagName("category").item(0).getTextContent();
+					switch(category)
+					{
+						case "buildings":	
+							break;
+						case "resource":
+							NodeList l = element.getElementsByTagName("minedby");
+							int m=0;
+							while( !C.get(m).getId().equals(element.getElementsByTagNames("id")))
+								m++;
+							for (int j = 0; j < l.getLength(); j++)
+							{
+								String minedby = l.item(j).getTextContent();
+								for( int k = 0;k < C.size();k++)
+								{
+									if((C.get(k) instanceof Building)&&(C.get(k).getName().equals(minedby)))
+									{
+										if(C.get(k) instanceof ExtractorSE){
+											(ExtractorSE)C.get(k).addr((Resource)C.get(m));
+											(Resource)C.get(m).addE((Building)C.get(k))
+										}
+										else
+										{
+											(Extractor)C.get(k).addr((Resource)C.get(m));
+											(Resource)C.get(m).addE((Building)C.get(k))
+										}
+									}
+										
+								}
+								
+							}
+							break;
+						case "components":
 							break;
 					}
 					
