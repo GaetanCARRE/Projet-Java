@@ -64,7 +64,7 @@ public class Test {
 									if(element.getElementsByTagName("category").item(0).getTextContent().equals(null))
 										C.add(new CentralRE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
 									else //String id, String name,String t,int v, String c
-										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.paseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
+										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
 								
 								}
 							}
