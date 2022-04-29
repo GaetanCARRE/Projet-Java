@@ -154,11 +154,14 @@ public class Test {
 					
 				}
 			}
+			for(int i =0;i<C.size();i++)
+				System.out.println(C.get(i));
 		}
 		catch (ParserConfigurationException | SAXException | IOException e) 
 		{
 			e.printStackTrace();
 		}
+		
   }
 }
 
