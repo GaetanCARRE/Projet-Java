@@ -1,7 +1,7 @@
 public class ClassicFactory extends Building {
-    double speed;
-    int usage;
-    int drain;
+    protected double speed;
+    protected int usage;
+    protected int drain;
 
     public ClassicFactory(String id, String name, int u, int d, double s) throws ConsommationException{
         super(id,name);

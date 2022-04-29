@@ -15,6 +15,6 @@ public class Resource extends Component {
 
     public String toString()
     {
-        return "Nom : "+super.getName()+ " " + extractor;
+        return "Nom : "+super.getName()+ " " + tabE;
     }
 }

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Fuel extends Component  implements IsFuel {   
     private String category;
