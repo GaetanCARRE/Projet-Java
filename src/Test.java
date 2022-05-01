@@ -131,7 +131,7 @@ public class Test {
 								String minedby = l.item(j).getTextContent();
 								for( int k = 0;k < C.size();k++)
 								{
-									if((C.get(k) instanceof Building)&&(C.get(k).getName().equals(minedby)))
+									if((C.get(k) instanceof Building)&&(C.get(k).getId().equals(minedby)))
 									{
 										if(C.get(k) instanceof ExtractorSE){
 											(ExtractorSE)C.get(k).addr((Resource)C.get(m));
