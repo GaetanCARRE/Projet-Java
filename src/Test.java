@@ -26,7 +26,9 @@ public class Test {
 	{
 		ArrayList<Component> C = new ArrayList<Component>();
 		ArrayList<Building> B = new ArrayList<Building>();
+		ArrayList<Recette> R = new ArrayList<Recette>();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		
 		
 		try 
 		{
@@ -124,7 +126,7 @@ public class Test {
 						case "resource":
 							NodeList l = element.getElementsByTagName("minedby");
 							int m=0;
-							while( !C.get(m).getId().equals(element.getElementsByTagNames("id")))
+							while( !C.get(m).getId().equals(element.getElementsByTagName("id")))
 								m++;
 							for (int j = 0; j < l.getLength(); j++)
 							{
@@ -153,6 +155,67 @@ public class Test {
 					}
 					
 				}
+			}
+			NodeList list = doc.getElementsByTagName("recipes");
+
+			for (int temp = 0; temp < list.getLength(); temp++) {
+				Node node = list.item(temp);
+				if(node.getNodeType() == Node.ELEMENT_NODE) 
+				{
+					//On regarde le nom et la categorie du composant
+					Element element = (Element) node;
+					String id = element.getElementsByTagName("id").item(0).getTextContent();
+					String name = element.getElementsByTagName("name").item(0).getTextContent();
+					String producers = element.getElementByTagName("producers").item(0).getTextContent();
+					double time = Double.parseDouble(element.getElementsByTagName("time").item(0).getTextContent());
+
+					//On recupere les ingredients in de la recette
+					Element input = (Element) element.getElementsByTagName("in").item(0);
+					Element output = (Element) element.getElementByTagName("out").item(0);
+					int o= 0;
+					int q;
+					while(!C.get(o).getId().equals(producers))
+						o++;
+					Recette recipe= new Recette(id,name,C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
+					R.add(recipe);
+				
+					NodeList liste_in = input.getElementsByTagName("*");
+					Nodelist liste_out = output.getElementsByTagName("*");
+					
+					for(int i=0; i<liste_in.getLength(); i++)
+					{
+						//On utilise la variable e pour recuperer le nom du tag (qui est le nom de l'item), et la variable input pour recuperer la quantite une fois qu'on connait le nom du tag
+						q=0;
+						Element e = (Element)liste_in.item(i);
+						String id_ingred = e.getNodeName();
+						int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
+						while(!C.get(q).getId().equals(id_ingred))
+							q++;
+						recipe.add_Resource_in(C.get(q),qte);
+						
+					}
+					if(liste_out.getLength() == 0)
+					{
+						q=0;
+						while(!C.get(q).getId().equals(id))
+							q++;
+						if(C.get(q) instanceof Extractor)
+							recipe.add_Resource_out(((Extractor)C.get(q)).getResource(),1);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
+					}
+					else
+					{
+						for(int i=0; i<liste_out.getLength(); i++)
+						{
+							q=0;
+							Element e = (Element) liste_out.item(i);
+							String id_ingred = e.getNodeName();
+							int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
+							while(!C.get(q).getId().equals(id_ingred))
+							q++;
+							recipe.add_Resource_out(C.get(q),qte);
+						}
+					}
+			}
 			}
 			for(int i =0;i<C.size();i++)
 				System.out.println(C.get(i));
