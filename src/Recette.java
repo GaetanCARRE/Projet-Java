@@ -2,15 +2,16 @@ import java.util.ArrayList;
 
 public abstract class Recette {
     
+    String id;
     String name;
     ArrayList<Resource> tab_in;
     ArrayList<Integer> qt_in;
     ArrayList<Resource> tab_out;
     ArrayList<Integer> qt_out;
     Building producers;
-    int time;
+    double time;
     
-    public Recette(String name,Building prod, int t)
+    public Recette(String id, String name,Building prod, double t)
     {
         this.name=name;
         this.producers=prod;
@@ -19,6 +20,10 @@ public abstract class Recette {
         qt_in = new ArrayList<Integer>();
         tab_out = new ArrayList<Resource>();
         qt_out = new ArrayList<Integer>();
+    }
+    public void setProd(Building b)
+    {
+        this.producers = b;
     }
     public void add_Resource_in(Resource R,int qt)
     {
@@ -48,6 +53,10 @@ public abstract class Recette {
         
         }
         return s;
+    }
+    public double getTime()
+    {
+        return time;
     }
 
 }
