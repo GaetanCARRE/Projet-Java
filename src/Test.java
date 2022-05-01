@@ -57,35 +57,35 @@ public class Test {
 						case "buildings":
 							String mining = element.getElementsByTagName("mining").item(0).getTextContent();
 							String factory = element.getElementsByTagName("factory").item(0).getTextContent();
-							if(mining.equals(null) && factory.equals(null))
+							if(element.getElementsByTagName("mining").getLength() == 0 && element.getElementsByTagName("factory").getLength() == 0)
 								C.add(new Building(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
-							if((!mining.equals(null))&&(factory.equals(null)))
+							if((!(element.getElementsByTagName("mining").getLength() == 0))&&(element.getElementsByTagName("factory").getLength() == 0))
 							{
-								if(element.getElementsByTagName("value").item(0).getTextContent().equals(null)){
+								if(element.getElementsByTagName("value").getLength() == 0){
 									C.add(new ExtractorSE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),(int)Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
 								else
 								{
-									if(element.getElementsByTagName("category").item(0).getTextContent().equals(null))
+									if(element.getElementsByTagName("category").getLength() == 0)
 										C.add(new CentralRE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
 									else //String id, String name,String t,int v, String c
 										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
 								
 								}
 							}
-							if((mining.equals(null))&&(!factory.equals(null))){
+							if((element.getElementsByTagName("mining").getLength() == 0)&&(!(element.getElementsByTagName("factory").getLength() == 0))){
 								if(element.getElementsByTagName("speed").getLength() ==0)
 									C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent())));
 								if(element.getElementsByTagName("speed").getLength() ==1)
 									C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 							}
-							if((!mining.equals(null))&&(!factory.equals(null)))
+							if((!(element.getElementsByTagName("mining").getLength() == 0))&&(!(element.getElementsByTagName("factory").getLength() == 0)))
 								C.add(new Extractor(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								
 							break;
 						case "resource":
-							String fuel = element.getElementsByTagName("fuel").item(0).getTextContent();
-							if(fuel.equals(null))
+							//String fuel = element.getElementsByTagName("fuel").item(0).getTextContent();
+							if(element.getElementsByTagName("fuel").getLength() == 0)
 							{
 								C.add(new Resource(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
 							}
@@ -95,7 +95,7 @@ public class Test {
 							}
 							break;
 						case "components":
-							if(element.getElementsByTagName("fuel").item(0).getTextContent().equals(null))
+							if(element.getElementsByTagName("fuel").getLength() == 0)
 							{
 								C.add(new Component(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
 							}
@@ -219,7 +219,7 @@ public class Test {
 							q++;
 							recipe.add_Resource_out((Resource)C.get(q),qte);
 						}
-					}
+					} 
 			}
 			}
 			for(int i =0;i<C.size();i++)
