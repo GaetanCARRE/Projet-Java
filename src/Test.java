@@ -55,8 +55,8 @@ public class Test {
 					switch(category)
 					{
 						case "buildings":
-							String mining = element.getElementsByTagName("mining").item(0).getTextContent();
-							String factory = element.getElementsByTagName("factory").item(0).getTextContent();
+							//String mining = element.getElementsByTagName("mining").item(0).getTextContent();
+							//String factory = element.getElementsByTagName("factory").item(0).getTextContent();
 							if(element.getElementsByTagName("mining").getLength() == 0 && element.getElementsByTagName("factory").getLength() == 0)
 								C.add(new Building(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
 							if((!(element.getElementsByTagName("mining").getLength() == 0))&&(element.getElementsByTagName("factory").getLength() == 0))
@@ -69,7 +69,7 @@ public class Test {
 									if(element.getElementsByTagName("category").getLength() == 0)
 										C.add(new CentralRE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
 									else //String id, String name,String t,int v, String c
-										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
+										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(1).getTextContent()));
 								
 								}
 							}
@@ -91,7 +91,7 @@ public class Test {
 							}
 							else
 							{
-								C.add(new ResourceFuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("category").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
+								C.add(new ResourceFuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("category").item(1).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
 							}
 							break;
 						case "components":
@@ -101,7 +101,7 @@ public class Test {
 							}
 							else
 							{
-								C.add(new Fuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(0).getTextContent()));
+								C.add(new Fuel(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(1).getTextContent()));
 							}
 							break;
 					}
@@ -166,7 +166,7 @@ public class Test {
 				Node node = list2.item(temp);
 				if(node.getNodeType() == Node.ELEMENT_NODE) 
 				{
-					//On regarde le nom et la categorie du composant
+					/* //On regarde le nom et la categorie du composant
 					Element element = (Element) node;
 					String id = element.getElementsByTagName("id").item(0).getTextContent();
 					String name = element.getElementsByTagName("name").item(0).getTextContent();
@@ -219,7 +219,7 @@ public class Test {
 							q++;
 							recipe.add_Resource_out((Resource)C.get(q),qte);
 						}
-					} 
+					}  */
 			}
 			}
 			for(int i =0;i<C.size();i++)
