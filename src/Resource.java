@@ -10,7 +10,7 @@ public class Resource extends Component {
     }
     public void addE(Building E)
     {
-        if((E instanceof ExtractorSE)||(E instanceof Exctractor))
+        if((E instanceof ExtractorSE)||(E instanceof Building))
             tabE.add(E);
     }
 

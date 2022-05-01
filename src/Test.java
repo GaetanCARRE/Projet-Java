@@ -137,12 +137,12 @@ public class Test {
 									{
 										if(C.get(k) instanceof ExtractorSE){
 											(ExtractorSE)C.get(k).addr((Resource)C.get(m));
-											(Resource)C.get(m).addE((Building)C.get(k))
+											(Resource)C.get(m).addE((Building)C.get(k));
 										}
 										else
 										{
 											(Extractor)C.get(k).addr((Resource)C.get(m));
-											(Resource)C.get(m).addE((Building)C.get(k))
+											(Resource)C.get(m).addE((Building)C.get(k));
 										}
 									}
 										
@@ -156,31 +156,31 @@ public class Test {
 					
 				}
 			}
-			NodeList list = doc.getElementsByTagName("recipes");
+			NodeList list2 = doc.getElementsByTagName("recipes");
 
-			for (int temp = 0; temp < list.getLength(); temp++) {
-				Node node = list.item(temp);
+			for (int temp = 0; temp < list2.getLength(); temp++) {
+				Node node = list2.item(temp);
 				if(node.getNodeType() == Node.ELEMENT_NODE) 
 				{
 					//On regarde le nom et la categorie du composant
 					Element element = (Element) node;
 					String id = element.getElementsByTagName("id").item(0).getTextContent();
 					String name = element.getElementsByTagName("name").item(0).getTextContent();
-					String producers = element.getElementByTagName("producers").item(0).getTextContent();
+					String producers = element.getElementsByTagName("producers").item(0).getTextContent();
 					double time = Double.parseDouble(element.getElementsByTagName("time").item(0).getTextContent());
 
 					//On recupere les ingredients in de la recette
 					Element input = (Element) element.getElementsByTagName("in").item(0);
-					Element output = (Element) element.getElementByTagName("out").item(0);
+					Element output = (Element) element.getElementsByTagName("out").item(0);
 					int o= 0;
 					int q;
 					while(!C.get(o).getId().equals(producers))
 						o++;
-					Recette recipe= new Recette(id,name,C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
+					Recette recipe = new Recette(id,name,C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
 					R.add(recipe);
 				
 					NodeList liste_in = input.getElementsByTagName("*");
-					Nodelist liste_out = output.getElementsByTagName("*");
+					NodeList liste_out = output.getElementsByTagName("*");
 					
 					for(int i=0; i<liste_in.getLength(); i++)
 					{
@@ -191,7 +191,7 @@ public class Test {
 						int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
 						while(!C.get(q).getId().equals(id_ingred))
 							q++;
-						recipe.add_Resource_in(C.get(q),qte);
+						recipe.add_Resource_in((Resource)C.get(q),qte);
 						
 					}
 					if(liste_out.getLength() == 0)
@@ -212,7 +212,7 @@ public class Test {
 							int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
 							while(!C.get(q).getId().equals(id_ingred))
 							q++;
-							recipe.add_Resource_out(C.get(q),qte);
+							recipe.add_Resource_out((Resource)C.get(q),qte);
 						}
 					}
 			}
