@@ -66,7 +66,7 @@ public class Test {
 								}
 								else
 								{
-									if(element.getElementsByTagName("category").getLength() == 0)
+									if(element.getElementsByTagName("category").getLength() == 1)
 										C.add(new CentralRE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent())));
 									else //String id, String name,String t,int v, String c
 										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(1).getTextContent()));
@@ -166,7 +166,7 @@ public class Test {
 				Node node = list2.item(temp);
 				if(node.getNodeType() == Node.ELEMENT_NODE) 
 				{
-					/* //On regarde le nom et la categorie du composant
+					//On regarde le nom et la categorie du composant
 					Element element = (Element) node;
 					String id = element.getElementsByTagName("id").item(0).getTextContent();
 					String name = element.getElementsByTagName("name").item(0).getTextContent();
@@ -219,7 +219,7 @@ public class Test {
 							q++;
 							recipe.add_Resource_out((Resource)C.get(q),qte);
 						}
-					}  */
+					}  
 			}
 			}
 			for(int i =0;i<C.size();i++)
