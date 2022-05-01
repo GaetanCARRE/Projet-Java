@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class ExtractorSE extends Building {
     private int speed;
-    private ArrayList<Resource> tabr;
+    private ArrayList<Resource> tabr; // une variable Resource set à null aurait été plus adaptés à notre code mais on a initialement penser qu'un extractor pouvait extraire différentes ressources.
 
     public ExtractorSE(String id, String name, int s) {
         super(id,name);
@@ -19,6 +19,10 @@ public class ExtractorSE extends Building {
 
     public String toString() {
         return super.toString() +",extrait la ressource "+/*r+*/ " à la vitesse " + speed ;
+    }
+    public Resource getResource() 
+    {
+        return tabr.get(0);
     }
 
 }
