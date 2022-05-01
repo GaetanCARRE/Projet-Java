@@ -136,13 +136,17 @@ public class Test {
 									if((C.get(k) instanceof Building)&&(C.get(k).getId().equals(minedby)))
 									{
 										if(C.get(k) instanceof ExtractorSE){
-											(ExtractorSE)C.get(k).addr((Resource)C.get(m));
-											(Resource)C.get(m).addE((Building)C.get(k));
+											ExtractorSE eSE = (ExtractorSE)C.get(k);
+											eSE.addr((Resource)C.get(m));
+											Resource r = (Resource)C.get(m);
+											r.addE((Building)C.get(k));
 										}
 										else
 										{
-											(Extractor)C.get(k).addr((Resource)C.get(m));
-											(Resource)C.get(m).addE((Building)C.get(k));
+											Extractor e = (Extractor)C.get(k);
+											e.addR((Resource)C.get(m));
+											Resource r = (Resource)C.get(m);
+											r.addE((Building)C.get(k));
 										}
 									}
 										
@@ -168,7 +172,7 @@ public class Test {
 					String name = element.getElementsByTagName("name").item(0).getTextContent();
 					String producers = element.getElementsByTagName("producers").item(0).getTextContent();
 					double time = Double.parseDouble(element.getElementsByTagName("time").item(0).getTextContent());
-
+					
 					//On recupere les ingredients in de la recette
 					Element input = (Element) element.getElementsByTagName("in").item(0);
 					Element output = (Element) element.getElementsByTagName("out").item(0);
@@ -177,6 +181,7 @@ public class Test {
 					while(!C.get(o).getId().equals(producers))
 						o++;
 					Recette recipe = new Recette(id,name,C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
+					
 					R.add(recipe);
 				
 					NodeList liste_in = input.getElementsByTagName("*");
