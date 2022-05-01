@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Extractor extends ClassicFactory {
 
-    ArrayList<Resource> tabr;
+    ArrayList<Resource> tabr; //une Variable Resource set a null dans le constructeurs serait plus adaptés a notre situation mais on a initialement penser qu'un extractor pouvait extraire différente ressource.
     
 
     /*public Extractor(Resource r, int u, int d, int s, String name) {*/
@@ -27,6 +27,10 @@ public class Extractor extends ClassicFactory {
 
     public String toString() {
         return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed;
+    }
+    public Resource getResource()
+    {
+        return tabr.get(0);
     }
 
 }
