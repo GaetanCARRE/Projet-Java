@@ -214,7 +214,7 @@ public class Test {
 						recipe.add_Resource_in((Resource)C.get(q),qte);
 						
 					}
-					if(liste_out.getLength() == 0)
+					if(element.getElementsByTagName("out").getLength() == 0)
 					{
 						q=0;
 						while(!C.get(q).getId().equals(id))
