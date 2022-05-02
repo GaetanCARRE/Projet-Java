@@ -13,7 +13,7 @@ public class ClassicFactory extends Building {
 
     }
 
-    public ClassicFactory(String id,String name, int u, int d) {
+    public ClassicFactory(String id,String name,double u, double d) {
         super(id,name);
         usage = u;
         drain = d;
