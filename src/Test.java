@@ -239,8 +239,11 @@ public class Test {
 					}
 			}
 			}
-			for(int i =0;i<C.size();i++)
+			for(int i =0;i<C.size();i++){
 				System.out.println(C.get(i));
+				if(C.get(i) instanceof Building)
+					B.add((Building)C.get(i));
+			}
 			for(int i =0;i<R.size();i++)
 				System.out.println(R.get(i));
 		}
