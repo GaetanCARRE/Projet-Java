@@ -135,6 +135,7 @@ public class Test {
 							break;
 						case "resource":
 							NodeList l = element.getElementsByTagName("minedby");
+							int m = temp;
 							/*int m=0;
 							while( (!C.get(m).getId().equals(element.getElementsByTagName("id"))))
 								m++;*/
