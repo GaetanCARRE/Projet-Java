@@ -61,8 +61,15 @@ public class Test {
 								C.add(new Building(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent()));
 							if((!(element.getElementsByTagName("mining").getLength() == 0))&&(element.getElementsByTagName("factory").getLength() == 0))
 							{
-								if(element.getElementsByTagName("value").getLength() == 0){
-									C.add(new ExtractorSE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),(int)Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
+								C.add(new ExtractorSE(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),(int)Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));															
+							}
+							if((element.getElementsByTagName("mining").getLength() == 0)&&(!(element.getElementsByTagName("factory").getLength() == 0))){
+								if(element.getElementsByTagName("value").getLength()==0)
+								{									
+									if(element.getElementsByTagName("speed").getLength() ==0)
+										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent())));
+									if(element.getElementsByTagName("speed").getLength() ==1)
+										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
 								else
 								{
@@ -72,12 +79,6 @@ public class Test {
 										C.add(new Central(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),element.getElementsByTagName("type").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("value").item(0).getTextContent()),element.getElementsByTagName("category").item(1).getTextContent()));
 								
 								}
-							}
-							if((element.getElementsByTagName("mining").getLength() == 0)&&(!(element.getElementsByTagName("factory").getLength() == 0))){
-								if(element.getElementsByTagName("speed").getLength() ==0)
-									C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent())));
-								if(element.getElementsByTagName("speed").getLength() ==1)
-									C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 							}
 							if((!(element.getElementsByTagName("mining").getLength() == 0))&&(!(element.getElementsByTagName("factory").getLength() == 0)))
 								C.add(new Extractor(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
