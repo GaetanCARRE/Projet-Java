@@ -182,7 +182,7 @@ public class Test {
 				Node node = list2.item(temp);
 				if(node.getNodeType() == Node.ELEMENT_NODE) 
 				{
-					/*
+					
 					//On regarde le nom et la categorie du composant
 					Element element = (Element) node;
 					String id = element.getElementsByTagName("id").item(0).getTextContent();
@@ -236,11 +236,13 @@ public class Test {
 							q++;
 							recipe.add_Resource_out((Resource)C.get(q),qte);
 						}
-					}*/  
+					}
 			}
 			}
 			for(int i =0;i<C.size();i++)
 				System.out.println(C.get(i));
+			for(int i =0;i<R.size();i++)
+				System.out.println(R.get(i));
 		}
 		catch (ParserConfigurationException | SAXException | IOException e) 
 		{
