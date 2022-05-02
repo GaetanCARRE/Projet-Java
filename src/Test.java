@@ -192,7 +192,6 @@ public class Test {
 					
 					//On recupere les ingredients in de la recette
 					Element input = (Element) element.getElementsByTagName("in").item(0);
-					Element output = (Element) element.getElementsByTagName("out").item(0);
 					int o= 0;
 					int q;
 					while(!C.get(o).getId().equals(producers))
@@ -202,7 +201,6 @@ public class Test {
 					R.add(recipe);
 				
 					NodeList liste_in = input.getElementsByTagName("*");
-					NodeList liste_out = output.getElementsByTagName("*");
 					
 					for(int i=0; i<liste_in.getLength(); i++)
 					{
@@ -226,6 +224,8 @@ public class Test {
 					}
 					else
 					{
+						Element output = (Element) element.getElementsByTagName("out").item(0);
+						NodeList liste_out = output.getElementsByTagName("*");
 						for(int i=0; i<liste_out.getLength(); i++)
 						{
 							q=0;
