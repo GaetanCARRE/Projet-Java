@@ -65,11 +65,20 @@ public class Test {
 							}
 							if((element.getElementsByTagName("mining").getLength() == 0)&&(!(element.getElementsByTagName("factory").getLength() == 0))){
 								if(element.getElementsByTagName("value").getLength()==0)
-								{									
+								{							
+									int drain, usage;
+									if(element.getElementsByTagName("usage").getLength())
+										usage = Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent());
+									else
+										usage = 0;
+									if(element.getElementsByTagName("drain").getLength())
+										drain = Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent());
+									else
+										drain = 0;
 									if(element.getElementsByTagName("speed").getLength() ==0)
-										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent())));
+										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain)));
 									if(element.getElementsByTagName("speed").getLength() ==1)
-										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(),Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent()),Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent()),Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
+										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain,Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
 								else
 								{
