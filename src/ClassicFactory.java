@@ -1,9 +1,9 @@
 public class ClassicFactory extends Building {
     protected double speed;
-    protected int usage;
-    protected int drain;
+    protected double usage;
+    protected double drain;
 
-    public ClassicFactory(String id, String name, int u, int d, double s) throws ConsommationException{
+    public ClassicFactory(String id, String name, double u, double d, double s) throws ConsommationException{
         super(id,name);
         if(drain > usage)
             throw new ConsommationException("L'usine consomme plus au repos qu'au travail!");
