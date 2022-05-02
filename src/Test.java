@@ -68,11 +68,11 @@ public class Test {
 								{							
 									int drain, usage;
 									if(element.getElementsByTagName("usage").getLength() != 0)
-										usage = Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent());
+										usage = Double.parseDouble(element.getElementsByTagName("usage").item(0).getTextContent());
 									else
 										usage = 0;
 									if(element.getElementsByTagName("drain").getLength() != 0)
-										drain = Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent());
+										drain = Double.parseDouble(element.getElementsByTagName("drain").item(0).getTextContent());
 									else
 										drain = 0;
 									if(element.getElementsByTagName("speed").getLength() ==0)
