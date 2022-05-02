@@ -135,12 +135,14 @@ public class Test {
 							break;
 						case "resource":
 							NodeList l = element.getElementsByTagName("minedby");
-							int m=0;
-							while( !C.get(m).getId().equals(element.getElementsByTagName("id")))
-								m++;
+							/*int m=0;
+							while( (!C.get(m).getId().equals(element.getElementsByTagName("id"))))
+								m++;*/
+							
 							for (int j = 0; j < l.getLength(); j++)
 							{
 								String minedby = l.item(j).getTextContent();
+								
 								for( int k = 0;k < C.size();k++)
 								{
 									if((C.get(k) instanceof Building)&&(C.get(k).getId().equals(minedby)))
