@@ -67,16 +67,16 @@ public class Test {
 								if(element.getElementsByTagName("value").getLength()==0)
 								{							
 									int drain, usage;
-									if(element.getElementsByTagName("usage").getLength())
+									if(element.getElementsByTagName("usage").getLength() != 0)
 										usage = Integer.parseInt(element.getElementsByTagName("usage").item(0).getTextContent());
 									else
 										usage = 0;
-									if(element.getElementsByTagName("drain").getLength())
+									if(element.getElementsByTagName("drain").getLength() != 0)
 										drain = Integer.parseInt(element.getElementsByTagName("drain").item(0).getTextContent());
 									else
 										drain = 0;
 									if(element.getElementsByTagName("speed").getLength() ==0)
-										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain)));
+										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain));
 									if(element.getElementsByTagName("speed").getLength() ==1)
 										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain,Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
@@ -176,6 +176,7 @@ public class Test {
 				Node node = list2.item(temp);
 				if(node.getNodeType() == Node.ELEMENT_NODE) 
 				{
+					/*
 					//On regarde le nom et la categorie du composant
 					Element element = (Element) node;
 					String id = element.getElementsByTagName("id").item(0).getTextContent();
@@ -229,7 +230,7 @@ public class Test {
 							q++;
 							recipe.add_Resource_out((Resource)C.get(q),qte);
 						}
-					}  
+					}*/  
 			}
 			}
 			for(int i =0;i<C.size();i++)
