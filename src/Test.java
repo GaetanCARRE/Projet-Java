@@ -66,7 +66,7 @@ public class Test {
 							if((element.getElementsByTagName("mining").getLength() == 0)&&(!(element.getElementsByTagName("factory").getLength() == 0))){
 								if(element.getElementsByTagName("value").getLength()==0)
 								{							
-									int drain, usage;
+									double drain, usage;
 									if(element.getElementsByTagName("usage").getLength() != 0)
 										usage = Double.parseDouble(element.getElementsByTagName("usage").item(0).getTextContent());
 									else
