@@ -196,7 +196,7 @@ public class Test {
 					int q;
 					while(!C.get(o).getId().equals(producers))
 						o++;
-					Recette recipe = new Recette(id,name,C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
+					Recette recipe = new Recette(id,name,(Building)C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
 					
 					R.add(recipe);
 				
