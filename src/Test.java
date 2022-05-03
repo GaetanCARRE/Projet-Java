@@ -211,7 +211,7 @@ public class Test {
 						int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
 						while(!C.get(q).getId().equals(id_ingred))
 							q++;
-						recipe.add_Comonent_in(C.get(q),qte);
+						recipe.add_Component_in(C.get(q),qte);
 						
 					}
 					if(element.getElementsByTagName("out").getLength() == 0)
