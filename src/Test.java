@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 
@@ -252,6 +253,7 @@ public class Test {
 					}
 			}
 			}
+			Collections.sort(C, Component.ComparatorName);
 			for(int i =0;i<C.size();i++){
 				System.out.println(C.get(i));
 				if(C.get(i) instanceof Building)
