@@ -30,7 +30,10 @@ public class Extractor extends ClassicFactory {
     }
     public Resource getResource()
     {
-        return tabr.get(0);
+        if (tabr.size()>0)
+            return tabr.get(0);
+        else 
+            return null;
     }
 
 }
