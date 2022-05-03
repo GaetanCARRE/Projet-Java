@@ -4,9 +4,9 @@ public class Recette {
     
     String id;
     String name;
-    ArrayList<Resource> tab_in;
+    ArrayList<Component> tab_in;
     ArrayList<Integer> qt_in;
-    ArrayList<Resource> tab_out;
+    ArrayList<Component> tab_out;
     ArrayList<Integer> qt_out;
     Building producers;
     double time;
@@ -16,23 +16,23 @@ public class Recette {
         this.name=name;
         this.producers=prod;
         this.time = t;
-        tab_in = new ArrayList<Resource>();
+        tab_in = new ArrayList<Component>();
         qt_in = new ArrayList<Integer>();
-        tab_out = new ArrayList<Resource>();
+        tab_out = new ArrayList<Component>();
         qt_out = new ArrayList<Integer>();
     }
     public void setProd(Building b)
     {
         this.producers = b;
     }
-    public void add_Resource_in(Resource R,int qt)
+    public void add_Component_in(Component R,int qt)
     {
         tab_in.add(R);
         qt_in.add(qt);
     
     }
 
-    public void add_Resource_out(Resource R,int qt)
+    public void add_Component_out(Component R,int qt)
     {
         tab_out.add(R);
         qt_out.add(qt);
