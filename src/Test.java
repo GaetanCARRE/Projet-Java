@@ -223,7 +223,7 @@ public class Test {
 					}
 					if(element.getElementsByTagName("out").getLength() == 0)
 					{
-						q=0;
+						q=1;
 						while((!C.get(q).getId().equals(id))&&(q<C.size()))
 							q++;
 						if(q<C.size()){
@@ -241,7 +241,7 @@ public class Test {
 						NodeList liste_out = output.getElementsByTagName("*");
 						for(int i=0; i<liste_out.getLength(); i++)
 						{
-							q=0;
+							q=1;
 							Element e = (Element) liste_out.item(i);
 							String id_ingred = e.getNodeName();
 							double qte = Double.parseDouble(output.getElementsByTagName(id_ingred).item(0).getTextContent());
