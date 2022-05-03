@@ -211,7 +211,7 @@ public class Test {
 						int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
 						while(!C.get(q).getId().equals(id_ingred))
 							q++;
-						recipe.add_Resource_in((Resource)C.get(q),qte);
+						recipe.add_Comonent_in(C.get(q),qte);
 						
 					}
 					if(element.getElementsByTagName("out").getLength() == 0)
@@ -220,7 +220,7 @@ public class Test {
 						while(!C.get(q).getId().equals(id))
 							q++;
 						if(C.get(q) instanceof Extractor)
-							recipe.add_Resource_out(((Extractor)C.get(q)).getResource(),1);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
+							recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
 					}
 					else
 					{
@@ -234,7 +234,7 @@ public class Test {
 							int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
 							while(!C.get(q).getId().equals(id_ingred))
 							q++;
-							recipe.add_Resource_out((Resource)C.get(q),qte);
+							recipe.add_Component_out(C.get(q),qte);
 						}
 					}
 			}
