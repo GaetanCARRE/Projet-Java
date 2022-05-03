@@ -208,7 +208,7 @@ public class Test {
 						q=0;
 						Element e = (Element)liste_in.item(i);
 						String id_ingred = e.getNodeName();
-						int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
+						double qte = Double.parseDouble(input.getElementsByTagName(id_ingred).item(0).getTextContent());
 						while(!C.get(q).getId().equals(id_ingred))
 							q++;
 						recipe.add_Component_in(C.get(q),qte);
@@ -231,7 +231,7 @@ public class Test {
 							q=0;
 							Element e = (Element) liste_out.item(i);
 							String id_ingred = e.getNodeName();
-							int qte = Integer.parseInt(input.getElementsByTagName(id_ingred).item(0).getTextContent());
+							int qte = Double.parseDouble(output.getElementsByTagName(id_ingred).item(0).getTextContent());
 							while(!C.get(q).getId().equals(id_ingred))
 							q++;
 							recipe.add_Component_out(C.get(q),qte);
