@@ -217,9 +217,9 @@ public class Test {
 					if(element.getElementsByTagName("out").getLength() == 0)
 					{
 						q=0;
-						while(!C.get(q).getId().equals(id))
+						while((!C.get(q).getId().equals(id))&&(q<C.size()))
 							q++;
-						if(C.get(q) instanceof Extractor)
+						if((C.get(q) instanceof Extractor)&&(C.get(q).getId().equals(id)))
 							recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
 					}
 					else
