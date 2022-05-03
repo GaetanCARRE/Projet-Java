@@ -221,9 +221,11 @@ public class Test {
 							q++;
 						if(q<C.size()){
 							if(C.get(q) instanceof Extractor)
-								recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
+								if((Extractor)C.get(q).getResource() != null)
+									recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
 							if(C.get(q) instanceof ExtractorSE)
-								recipe.add_Component_out(((ExtractorSE)C.get(q)).getResource(),1.);
+								if((ExtractorSE)C.get(q).getResource() != null)
+									recipe.add_Component_out(((ExtractorSE)C.get(q)).getResource(),1.);
 						}
 					}
 					else
