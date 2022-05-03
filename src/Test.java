@@ -194,10 +194,16 @@ public class Test {
 					Element input = (Element) element.getElementsByTagName("in").item(0);
 					int o= 0;
 					int q;
-					while(!C.get(o).getId().equals(producers))
+					while((!C.get(o).getId().equals(producers))&&(o<C.size()))
 						o++;
-					Recette recipe = new Recette(id,name,(Building)C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
-					
+					if(C.get(o).getId().equals(producers))
+					{
+						Recette recipe = new Recette(id,name,(Building)C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
+					}
+					else
+					{
+						Recette recipe = new Recette(id,name,null,time);// cas où l'on ne trouve pas de batiment qui produise la recette
+					}
 					R.add(recipe);
 				
 					NodeList liste_in = input.getElementsByTagName("*");
