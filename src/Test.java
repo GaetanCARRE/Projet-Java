@@ -194,15 +194,16 @@ public class Test {
 					Element input = (Element) element.getElementsByTagName("in").item(0);
 					int o= 0;
 					int q;
+					Recette recipe;
 					while((!C.get(o).getId().equals(producers))&&(o<C.size()))
 						o++;
 					if(C.get(o).getId().equals(producers))
 					{
-						Recette recipe = new Recette(id,name,(Building)C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
+						recipe = new Recette(id,name,(Building)C.get(o),time); // on conserve l'handle vers la recette pour pouvoir ajouter les ingrédients in et out par la suite.
 					}
 					else
 					{
-						Recette recipe = new Recette(id,name,null,time);// cas où l'on ne trouve pas de batiment qui produise la recette
+						recipe = new Recette(id,name,null,time);// cas où l'on ne trouve pas de batiment qui produise la recette
 					}
 					R.add(recipe);
 				
@@ -227,10 +228,10 @@ public class Test {
 							q++;
 						if(q<C.size()){
 							if(C.get(q) instanceof Extractor)
-								if((Extractor)C.get(q).getResource() != null)
+								if(((Extractor)C.get(q)).getResource() != null)
 									recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
 							if(C.get(q) instanceof ExtractorSE)
-								if((ExtractorSE)C.get(q).getResource() != null)
+								if(((ExtractorSE)C.get(q)).getResource() != null)
 									recipe.add_Component_out(((ExtractorSE)C.get(q)).getResource(),1.);
 						}
 					}
