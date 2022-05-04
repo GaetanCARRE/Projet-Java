@@ -254,13 +254,21 @@ public class Test {
 			}
 			}
 			Collections.sort(C, Component.ComparatorName);
+			Collections.sort(R, Recette.ComparatorName);
+			System.out.println("Liste alphabétique des composants qui ne sont pas des batiments:");
 			for(int i =0;i<C.size();i++){
-				System.out.println(C.get(i));
+				//System.out.println(C.get(i));
 				if(C.get(i) instanceof Building)
 					B.add((Building)C.get(i));
+				else
+					System.out.println("- "+C.get(i).getName()+ " composant n° "+i);
 			}
+			System.out.println("Liste alphabétique des batiments:");
+			for(int i = 0;i<B.size();i++)
+				System.out.println("- "+B.get(i).getName()+" batiment n° "+i);
+			System.out.println("Liste alphabétique des recettes:");
 			for(int i =0;i<R.size();i++)
-				System.out.println(R.get(i));
+				System.out.println(R.get(i).getName());
 		}
 		catch (ParserConfigurationException | SAXException | IOException e) 
 		{
