@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 
 
@@ -269,6 +270,16 @@ public class Test {
 			System.out.println("Liste alphabétique des recettes:");
 			for(int i =0;i<R.size();i++)
 				System.out.println("- "+R.get(i).getName()+" recette n° "+i);
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Veuillez entrer le n° associé au composant rechercher pour plus d'information:");
+			String str = sc.nextLine();
+			System.out.println(C.get(Integer.parseInt(str)));
+			System.out.println("Veuillez entrer le n° associé au Batiment rechercher pour plus d'information:");
+			String str = sc.nextLine(); 
+			System.out.println(C.get(Integer.parseInt(str)));
+			System.out.println("Veuillez entrer le n° associé à la recette rechercher pour plus d'informations:");
+			String str = sc.nextLine();
+			System.out.println(C.get(Integer.parseInt(str)));
 		}
 		catch (ParserConfigurationException | SAXException | IOException e) 
 		{
