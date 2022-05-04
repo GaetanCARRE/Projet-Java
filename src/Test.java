@@ -268,7 +268,7 @@ public class Test {
 				System.out.println("- "+B.get(i).getName()+" batiment n° "+i);
 			System.out.println("Liste alphabétique des recettes:");
 			for(int i =0;i<R.size();i++)
-				System.out.println(R.get(i).getName());
+				System.out.println("- "+R.get(i).getName()+" recette n° "+i);
 		}
 		catch (ParserConfigurationException | SAXException | IOException e) 
 		{
