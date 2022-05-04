@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Comparator;
+
 
 public class Recette {
     
@@ -58,5 +60,19 @@ public class Recette {
     {
         return time;
     }
+    public String getName()
+    {
+        return name;
+    }
+    /*
+     * Comparator pour le tri des composant par nom en s'inspirant de : http://www.codeurjava.com/2015/10/trier-un-arraylist-dobjets-avec-comparable-et-comparator.html
+     */
+    public static Comparator<Recette> ComparatorName = new Comparator<Recette>() {
+      
+        @Override
+        public int compare(Recette r1, Recette r2) {
+            return r1.getName().compareTo(r2.getName());
+        }
+    };
 
 }
