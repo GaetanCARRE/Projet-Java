@@ -28,6 +28,7 @@ public class Test {
 	{
 		ArrayList<Component> C = new ArrayList<Component>();
 		ArrayList<Building> B = new ArrayList<Building>();
+		ArrayList<Building> Extra = new ArrayList<Building>();
 		ArrayList<Recette> R = new ArrayList<Recette>();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		
@@ -259,8 +260,11 @@ public class Test {
 			System.out.println("Liste alphabétique des composants qui ne sont pas des batiments:");
 			for(int i =0;i<C.size();i++){
 				//System.out.println(C.get(i));
-				if(C.get(i) instanceof Building)
+				if(C.get(i) instanceof Building){
 					B.add((Building)C.get(i));
+					if(C.get(i) instanceof Extractor || C.get(i) instanceof ExtractorSE)
+						Extra.add((Building)C.get(i));
+				}
 				else
 					System.out.println("- "+C.get(i).getName()+ " composant n° "+i);
 			}
@@ -280,6 +284,11 @@ public class Test {
 			System.out.println("Veuillez entrer le n° associé à la recette rechercher pour plus d'informations:");
 			String str = sc.nextLine();
 			System.out.println(C.get(Integer.parseInt(str)));
+			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +Extra.size()-1+"):");
+			String str = sc.nextLine();
+			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
+			/*ajouter le code qui permet d'afficher toutes les recette associé à cette extractor, donc d'id == à l'extractor ou de ressource produite == ressource associé àl'extractor*/
+			
 		}
 		catch (ParserConfigurationException | SAXException | IOException e) 
 		{
