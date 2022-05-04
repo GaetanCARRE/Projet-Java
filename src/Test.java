@@ -276,16 +276,17 @@ public class Test {
 				System.out.println("- "+R.get(i).getName()+" recette n° "+i);
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Veuillez entrer le n° associé au composant rechercher pour plus d'information:");
-			String str = sc.nextLine();
+			String str;
+			str = sc.nextLine();
 			System.out.println(C.get(Integer.parseInt(str)));
 			System.out.println("Veuillez entrer le n° associé au Batiment rechercher pour plus d'information:");
-			String str = sc.nextLine(); 
+			str = sc.nextLine(); 
 			System.out.println(C.get(Integer.parseInt(str)));
 			System.out.println("Veuillez entrer le n° associé à la recette rechercher pour plus d'informations:");
-			String str = sc.nextLine();
+			str = sc.nextLine();
 			System.out.println(C.get(Integer.parseInt(str)));
-			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +Extra.size()-1+"):");
-			String str = sc.nextLine();
+			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +(Extra.size()-1)+"):");
+			str = sc.nextLine();
 			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
 			/*ajouter le code qui permet d'afficher toutes les recette associé à cette extractor, donc d'id == à l'extractor ou de ressource produite == ressource associé àl'extractor*/
 			
