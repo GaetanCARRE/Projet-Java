@@ -4,7 +4,7 @@ public class Component {
     private String id;
     protected String name;
     /*private static int cpt = 0;*/
-    public ArrayList <Recette> trec;
+    public ArrayList <Recette> trec; // le mettre en private nécessiterai de créer une fonction pour ajouter les recette et les un geteur.
 
     public Component(String id,String name) {
         this.name = name;
