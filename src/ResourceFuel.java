@@ -40,7 +40,7 @@ public class ResourceFuel extends Resource implements IsFuel{
     }
     public void addE(Building E)
     {
-        if((E instanceof ExtractorSE)||(E instanceof Building))
+       // if((E instanceof ExtractorSE)||(E instanceof Building))
             tabE.add(E);
     }
     public ArrayList<Building> getExtractor()
