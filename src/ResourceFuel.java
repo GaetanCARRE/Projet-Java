@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ResourceFuel extends Resource implements IsFuel{
     
     private String category;

@@ -27,7 +27,7 @@ public class Extractor extends ClassicFactory implements Extracteur{
     public String toString() {
         return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed;
     }
-    public ArayList<Resource> getResource()
+    public ArrayList<Resource> getResource()
     {
         //if (tabr.size()>0)
             return tabr;

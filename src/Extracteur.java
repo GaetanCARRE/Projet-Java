@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface Extracteur {
-    public Resource getResource();
+    public ArrayList<Resource> getResource();
 }

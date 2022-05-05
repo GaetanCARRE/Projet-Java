@@ -233,7 +233,7 @@ public class Test {
 							if(C.get(q) instanceof Extracteur)
 								if(((Extracteur)C.get(q)).getResource().size() >0)
 								{
-									recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
+									recipe.add_Component_out(((Extractor)C.get(q)).getResource().get(0),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
 									
 								}
 						}

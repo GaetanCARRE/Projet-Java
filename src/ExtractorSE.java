@@ -20,7 +20,7 @@ public class ExtractorSE extends Building implements Extracteur {
     public String toString() {
         return super.toString() +",extrait la ressource "+/*r+*/ " à la vitesse " + speed ;
     }
-    public Resource getResource() 
+    public ArrayList<Resource> getResource() 
     {
         //if(tabr.size()>0)
             return tabr;
