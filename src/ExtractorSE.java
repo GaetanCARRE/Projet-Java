@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class ExtractorSE extends Building {
+public class ExtractorSE extends Building implements Extracteur {
     private int speed;
     private ArrayList<Resource> tabr; // une variable Resource set à null aurait été plus adaptés à notre code mais on a initialement penser qu'un extractor pouvait extraire différentes ressources.
 
