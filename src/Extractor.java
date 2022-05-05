@@ -21,14 +21,13 @@ public class Extractor extends ClassicFactory implements Extracteur{
     
     public void addR(Resource R)
     {
-        if(tabr.size()<1)
             tabr.add(R);
     }
 
     public String toString() {
         return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed;
     }
-    public Resource getResource()
+    public ArayList<Resource> getResource()
     {
         if (tabr.size()>0)
             return tabr.get(0);
