@@ -12,7 +12,7 @@ public class ExtractorSE extends Building implements Extracteur {
     }
     public void addr(Resource r)
     {
-        if(tabr.size()<1)
+        /*if(tabr.size()<1)*/
             tabr.add(r);
            
     }
@@ -22,10 +22,10 @@ public class ExtractorSE extends Building implements Extracteur {
     }
     public Resource getResource() 
     {
-        if(tabr.size()>0)
-            return tabr.get(0);
-        else 
-            return null;
+        //if(tabr.size()>0)
+            return tabr;
+        //else 
+        //    return null;
     }
 
 }
