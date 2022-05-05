@@ -29,10 +29,10 @@ public class Extractor extends ClassicFactory implements Extracteur{
     }
     public ArayList<Resource> getResource()
     {
-        if (tabr.size()>0)
+        //if (tabr.size()>0)
             return tabr;
-        else 
-            return null;
+        //else 
+        //    return null;
     }
 
 }
