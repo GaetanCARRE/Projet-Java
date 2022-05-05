@@ -28,7 +28,7 @@ public class Test {
 	{
 		ArrayList<Component> C = new ArrayList<Component>();
 		ArrayList<Building> B = new ArrayList<Building>();
-		ArrayList<Building> Extra = new ArrayList<Building>();
+		ArrayList<Extracteur> Extra = new ArrayList<Extracteur>();
 		ArrayList<Recette> R = new ArrayList<Recette>();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		
@@ -230,12 +230,12 @@ public class Test {
 						while((!C.get(q).getId().equals(id))&&(q<C.size()))
 							q++;
 						if(q<C.size()){
-							if(C.get(q) instanceof Extractor)
-								if(((Extractor)C.get(q)).getResource() != null)
+							if(C.get(q) instanceof Extracteur)
+								if(((Extracteur)C.get(q)).getResource().size() >0)
+								{
 									recipe.add_Component_out(((Extractor)C.get(q)).getResource(),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
-							if(C.get(q) instanceof ExtractorSE)
-								if(((ExtractorSE)C.get(q)).getResource() != null)
-									recipe.add_Component_out(((ExtractorSE)C.get(q)).getResource(),1.);
+									
+								}
 						}
 					}
 					else
@@ -262,8 +262,8 @@ public class Test {
 				//System.out.println(C.get(i));
 				if(C.get(i) instanceof Building){
 					B.add((Building)C.get(i));
-					if(C.get(i) instanceof Extractor || C.get(i) instanceof ExtractorSE)
-						Extra.add((Building)C.get(i));
+					if(C.get(i) instanceof Extracteur)
+						Extra.add((Extracteur)C.get(i));
 				}
 				else
 					System.out.println("- "+C.get(i).getName()+ " composant n° "+i);
