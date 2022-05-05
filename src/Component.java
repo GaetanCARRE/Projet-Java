@@ -4,11 +4,13 @@ public class Component {
     private String id;
     protected String name;
     /*private static int cpt = 0;*/
+    public ArrayList <Recette> trec;
 
     public Component(String id,String name) {
         this.name = name;
         this.id = id;
         /*id = cpt++;*/
+        trec = new ArrayList<Recette>();
     }
 
     public String toString()
