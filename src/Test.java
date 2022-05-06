@@ -324,18 +324,18 @@ public class Test {
 			}
 			if(ex instanceof Central)
 			{
-				String cat = (Central)ex.getCategory();
+				String cat = ((Central)ex).getCategory();
 				System.out.println("\nLa centrale étant de type "+cat+", elle peut utiliser les carburants suivant:\n");
 				for(Component rf:C){
 					if(rf instanceof ResourceFuel){
-						rf=(ResourceFuel) rf;
-						if(rf.getCategory().equals(cat))
+						ResourceFuel rf2=(ResourceFuel) rf;
+						if(rf2.getCategory().equals(cat))
 							System.out.println(rf);
 					}
 					if(rf instanceof Fuel)
 					{
-						rf=(Fuel)rf;
-						if(rf.getCategory().equals(cat))
+						Fuel rf3=(Fuel)rf;
+						if(rf3.getCategory().equals(cat))
 							System.out.println(rf);
 					}
 				}
@@ -347,7 +347,7 @@ public class Test {
 			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +(Extra.size()-1)+"):");
 			str = sc.nextLine();
 			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
-			Component ex = (Component)Extra.get(Integer.parseInt(str));
+			ex = (Component)Extra.get(Integer.parseInt(str));
 			if(ex.trec.size()>0)
 			{
 				System.out.println("\nLe bâtiments a pour recette :\n");
