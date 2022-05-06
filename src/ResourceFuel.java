@@ -4,7 +4,7 @@ public class ResourceFuel extends Resource implements IsFuel{
     
     private String category;
     private int value;
-    private ArrayList<Building> tabE;
+    //private ArrayList<Building> tabE;
 
     public ResourceFuel(String id, String name, /*Extractor e,*/ String c, int v) throws CategoryException
     {
@@ -40,7 +40,7 @@ public class ResourceFuel extends Resource implements IsFuel{
     {
         return category;
     }
-    public void addE(Building E)
+    /*public void addE(Building E)
     {
        // if((E instanceof ExtractorSE)||(E instanceof Building))
             tabE.add(E);
@@ -48,5 +48,5 @@ public class ResourceFuel extends Resource implements IsFuel{
     public ArrayList<Building> getE()
     {
         return tabE;
-    }
+    }*/
 }
