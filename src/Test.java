@@ -348,6 +348,7 @@ public class Test {
 			Recette rec = R.get(Integer.parseInt(str));
 			System.out.println("la recette "+rec.getName()+" nécessite les ressources suivantes:");
 			ArrayList<Component> tabin = rec.getlistin();
+			ArrayList<Comonent> tabout;
 			for(int i=0;i<tabin.size();i++)
 			{
 				if( tabin.get(i) instanceof Resource)
@@ -357,7 +358,7 @@ public class Test {
 					int j = 0;
 					while(j<R.size())
 					{
-						ArrayList<Component> tabout= R.get(j).getlistout();
+						tabout= R.get(j).getlistout();
 						for(int k=0;k<tabout.size();k++)
 						{
 							if(tabin.get(i).equals(tabout.get(k)))
