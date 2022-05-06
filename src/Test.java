@@ -172,7 +172,8 @@ public class Test {
 												Extractor e = (Extractor)C.get(k);
 												e.addR((Resource)C.get(m));
 												Resource r = (Resource)C.get(m);
-												r.addE((Building)C.get(k));
+												//r.addE((Building)C.get(k));
+												r.addE(e);
 											}
 											else
 											{
