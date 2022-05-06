@@ -7,7 +7,7 @@ public class ClassicFactory extends Building {
 
     public ClassicFactory(String id, String name, double u, double d, double s) throws ConsommationException{
         super(id,name);
-        if(d > u)
+        if(d > (u+0.01))
             throw new ConsommationException("L'usine consomme plus au repos qu'au travail!");
         usage = u;
         drain = d;
@@ -19,7 +19,7 @@ public class ClassicFactory extends Building {
     public ClassicFactory(String id,String name,double u, double d) throws ConsommationException
     {
         super(id,name);
-        if(d > u)
+        if(d > (u+0.01))
             throw new ConsommationException("L'usine consomme plus au repos qu'au travail!");
         usage = u;
         drain = d;
