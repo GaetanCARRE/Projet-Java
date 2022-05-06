@@ -277,11 +277,12 @@ public class Test {
 							while(!C.get(q).getId().equals(id_ingred))
 							q++;
 							recipe.add_Component_out(C.get(q),qte);
-							for(int j=0;j<((Resource)C.get(q)).getE().size();j++)
-							{
-								Resource re = (Resource)C.get(q);
-								re.getE().get(j).trec.add(recipe);
-							}
+							if(C.get(q) instanceof Resource)
+								for(int j=0;j<((Resource)C.get(q)).getE().size();j++)
+								{
+									Resource re = (Resource)C.get(q);
+									re.getE().get(j).trec.add(recipe);
+								}
 							
 						}
 					}
