@@ -24,6 +24,7 @@ public class ClassicFactory extends Building {
         usage = u;
         drain = d;
         speed = 1;
+        tabr = new ArrayList<Resource>();
     }
     public void addR(Resource R)
     {
