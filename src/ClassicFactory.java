@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 public class ClassicFactory extends Building {
     protected double speed;
     protected double usage;
     protected double drain;
-    protected double ArrayList<Resource> tabr;
+    protected ArrayList<Resource> tabr;
 
     public ClassicFactory(String id, String name, double u, double d, double s) throws ConsommationException{
         super(id,name);
@@ -35,7 +36,7 @@ public class ClassicFactory extends Building {
 
     public String toString() {
         String s = "\nCe bâtiment peut avoir pour recette :\n";
-        for(recipe r:this.tres)
+        for(Recette r:this.trec)
             s+= r+"\n";
         return "Usine Classic  : " + name + ", usage : " +usage + ", drain : " +drain + ", speed : "+speed + s;
         

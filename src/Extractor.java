@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 public class Extractor extends ClassicFactory implements Extracteur{
 
     //ArrayList<Resource> tabr; une Variable Resource set a null dans le constructeurs serait plus adaptés a notre situation mais on a initialement penser qu'un extractor pouvait extraire différente ressource.
@@ -13,7 +12,7 @@ public class Extractor extends ClassicFactory implements Extracteur{
     }
 
     /*public Extractor(Resource r, int u, int d, String name) {*/
-    public Extractor(String id, String name, int u, int d)
+    public Extractor(String id, String name, int u, int d) throws ConsommationException
     {
         super(id,name,u,d);
         //tabr = new ArrayList<Resource>();
@@ -26,7 +25,7 @@ public class Extractor extends ClassicFactory implements Extracteur{
 
     public String toString() {
         String s = "\nCe bâtiment peut avoir pour recette :\n";
-        for(recipe r:this.tres)
+        for(Recette r:this.trec)
             s+= r+"\n";
         return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed + s;
     }
