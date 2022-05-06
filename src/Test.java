@@ -78,8 +78,16 @@ public class Test {
 										drain = Double.parseDouble(element.getElementsByTagName("drain").item(0).getTextContent());
 									else
 										drain = 0;
-									if(element.getElementsByTagName("speed").getLength() ==0)
+									if(element.getElementsByTagName("speed").getLength() ==0){
+										try{
 										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain));
+										}
+										catch(Exception e)
+										{
+											System.out.println(e);
+											C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, 0));
+										}
+									}
 									if(element.getElementsByTagName("speed").getLength() ==1)
 										C.add(new ClassicFactory(element.getElementsByTagName("id").item(0).getTextContent(),element.getElementsByTagName("name").item(0).getTextContent(), usage, drain,Double.parseDouble(element.getElementsByTagName("speed").item(0).getTextContent())));
 								}
