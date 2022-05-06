@@ -311,11 +311,11 @@ public class Test {
 			System.out.println("Veuillez entrer le n° associé au composant rechercher pour plus d'information:");
 			String str;
 			str = sc.nextLine();
-			System.out.println(C.get(Integer.parseInt(str)));
+			System.out.println(B.get(Integer.parseInt(str)));
 			System.out.println("Veuillez entrer le n° associé au Batiment rechercher pour plus d'information:");
 			str = sc.nextLine(); 
-			System.out.println(C.get(Integer.parseInt(str)));
-			Component ex = C.get(Integer.parseInt(str));
+			System.out.println(B.get(Integer.parseInt(str)));
+			Component ex = B.get(Integer.parseInt(str));
 			if(ex.trec.size()>0)
 			{
 				System.out.println("\nLe bâtiments a pour recette :\n");
@@ -324,9 +324,10 @@ public class Test {
 			}
 			if(ex instanceof Central)
 			{
+                
 				String cat = ((Central)ex).getCategory();
 				System.out.println("\nLa centrale étant de type "+cat+", elle peut utiliser les carburants suivant:\n");
-				for(Component rf:C){
+				for(Component rf:B){
 					if(rf instanceof IsFuel){
 						IsFuel rf2=(IsFuel) rf;
 						if(rf2.getCategory().equals(cat))
