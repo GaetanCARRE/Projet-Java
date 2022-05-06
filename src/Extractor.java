@@ -25,10 +25,10 @@ public class Extractor extends ClassicFactory implements Extracteur{
     }*/
 
     public String toString() {
-        String s = "\nCe bâtiment peut avoir pour recette :\n";
+        /*String s = "\nCe bâtiment peut avoir pour recette :\n";
         for(Recette r:super.trec)
-            s+= r+"\n";
-        return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed + s;
+            s+= r+"\n";*/
+        return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed /*+ s*/;
     }
     /*public ArrayList<Resource> getResource()
     {
