@@ -2,6 +2,7 @@ public class ClassicFactory extends Building {
     protected double speed;
     protected double usage;
     protected double drain;
+    protected double ArrayList<Resource> tabr;
 
     public ClassicFactory(String id, String name, double u, double d, double s) throws ConsommationException{
         super(id,name);
@@ -10,6 +11,7 @@ public class ClassicFactory extends Building {
         usage = u;
         drain = d;
         speed = s;
+        tabr = new ArrayList<Resource>();
 
     }
 
@@ -21,6 +23,14 @@ public class ClassicFactory extends Building {
         usage = u;
         drain = d;
         speed = 1;
+    }
+    public void addR(Resource R)
+    {
+            tabr.add(R);
+    }
+    public ArrayList<Resource> getResource()
+    {
+            return tabr;
     }
 
     public String toString() {
