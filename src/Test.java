@@ -315,6 +315,21 @@ public class Test {
 			System.out.println("Veuillez entrer le n° associé au Batiment rechercher pour plus d'information:");
 			str = sc.nextLine(); 
 			System.out.println(C.get(Integer.parseInt(str)));
+			Component ex = C.get(Integer.parseInt(str));
+			if(ex.trec.size()>0)
+			{
+				System.out.println("\nLe bâtiments a pour recette :\n");
+				for(Recette r : ex.trec)
+					System.out.println(r);
+			}
+			if(ex instanceof Central)
+			{
+				String cat = (Central)ex.getCategory();
+				System.out.println("\nLa centrale étant de type "+cat+", elle peut utiliser les carburants suivant:\n");
+				for(ResourceFuel rf:C)
+					if(rf.getCategory().equals(cat))
+						System.out.println(rf);
+			}
 			System.out.println("Veuillez entrer le n° associé à la recette rechercher pour plus d'informations:");
 			str = sc.nextLine();
 			System.out.println(C.get(Integer.parseInt(str)));
