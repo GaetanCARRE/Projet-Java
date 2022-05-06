@@ -252,7 +252,7 @@ public class Test {
 							if(C.get(q) instanceof Extracteur)
 								if(((Extracteur)C.get(q)).getResource().size() >0)
 								{
-									recipe.add_Component_out(((Extractor)C.get(q)).getResource().get(0),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
+									recipe.add_Component_out(((Extracteur)C.get(q)).getResource().get(0),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
 									C.get(q).trec.add(recipe);
 									
 								}
@@ -321,11 +321,11 @@ public class Test {
 			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +(Extra.size()-1)+"):");
 			str = sc.nextLine();
 			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
-			Component ex = Extra.get(Integer.parseInt(str));
+			Component ex = (Component)Extra.get(Integer.parseInt(str));
 			if(ex.trec.size()>0)
 			{
 				System.out.println("\nLe bâtiments a pour recette :\n");
-				for(recette r : ex.trec)
+				for(Recette r : ex.trec)
 					System.out.println(r);
 			}					 
 			
