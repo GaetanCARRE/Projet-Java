@@ -327,16 +327,16 @@ public class Test {
                 
 				String cat = ((Central)ex).getCategory();
 				System.out.println("\nLa centrale étant de type "+cat+", elle peut utiliser les carburants suivant:\n");
-				for(Component rf:B){
-					if(rf instanceof Fuel){
-						Fuel rf2=(Fuel) rf;
-						if(rf2.getCategory().equals(cat))
+				for(int i;i<C.size();i++){
+					if(C.get(i) instanceof Fuel){
+						Fuel rf=(Fuel) C.get(i);
+						if(rf.getCategory().equals(cat))
 							System.out.println(rf2);
 					}
-					if(rf instanceof ResourceFuel)
+					if(C.get(i) instanceof ResourceFuel)
 					{
-						ResourceFuel rf3=(ResourceFuel)rf;
-						if(rf3.getCategory().equals(cat))
+						ResourceFuel rf2=(ResourceFuel)C.get(i);
+						if(rf2.getCategory().equals(cat))
 							System.out.println(rf3);
 					}
 				}
