@@ -36,4 +36,8 @@ public class Central extends CentralRE {
     {
         return super.toString() +"category : " + category + " Fuel: "+fuel;
     }
+    public String getCategory()
+    {
+        return category;
+    }
 }
