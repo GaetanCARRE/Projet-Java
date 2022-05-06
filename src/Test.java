@@ -375,7 +375,7 @@ public class Test {
 					if(q<R.size()){
 						tabout = R.get(q).getlistin();//contient désormais les composant a ajouter a notre arraylist tabin
 					
-						for(int k=0;k<tabin.size();k++)					
+						for(int k=0;k<tabout.size();k++)					
 						{	
 							tabin.add(tabout.get(k));	
 						}
