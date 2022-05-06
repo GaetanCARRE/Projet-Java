@@ -64,6 +64,14 @@ public class Recette {
     {
         return name;
     }
+    public ArrayList<Component> getlistin()
+    {
+        return tab_in;
+    }
+    public ArrayList<Component> getlistout()
+    {
+        return tab_out;
+    }
     /*
      * Comparator pour le tri des composant par nom en s'inspirant de : http://www.codeurjava.com/2015/10/trier-un-arraylist-dobjets-avec-comparable-et-comparator.html
      */
