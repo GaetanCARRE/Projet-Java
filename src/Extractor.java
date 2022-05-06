@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Extractor extends ClassicFactory implements Extracteur{
 
     //ArrayList<Resource> tabr; une Variable Resource set a null dans le constructeurs serait plus adaptés a notre situation mais on a initialement penser qu'un extractor pouvait extraire différente ressource.
