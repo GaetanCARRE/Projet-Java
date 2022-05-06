@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 public class Extractor extends ClassicFactory implements Extracteur{
 
-    ArrayList<Resource> tabr; //une Variable Resource set a null dans le constructeurs serait plus adaptés a notre situation mais on a initialement penser qu'un extractor pouvait extraire différente ressource.
+    //ArrayList<Resource> tabr; une Variable Resource set a null dans le constructeurs serait plus adaptés a notre situation mais on a initialement penser qu'un extractor pouvait extraire différente ressource.
     
 
     /*public Extractor(Resource r, int u, int d, int s, String name) {*/
     public Extractor(String id, String name, int u, int d, double s) throws ConsommationException
     {
         super(id,name,u,d,s);
-        tabr = new ArrayList<Resource>();
+        //tabr = new ArrayList<Resource>();
 
     }
 
@@ -16,23 +16,23 @@ public class Extractor extends ClassicFactory implements Extracteur{
     public Extractor(String id, String name, int u, int d)
     {
         super(id,name,u,d);
-        tabr = new ArrayList<Resource>();
+        //tabr = new ArrayList<Resource>();
     }
     
-    public void addR(Resource R)
+    /*public void addR(Resource R)
     {
             tabr.add(R);
-    }
+    }*/
 
     public String toString() {
         return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed;
     }
-    public ArrayList<Resource> getResource()
+    /*public ArrayList<Resource> getResource()
     {
         //if (tabr.size()>0)
             return tabr;
         //else 
         //    return null;
-    }
+    }*/
 
 }
