@@ -311,7 +311,7 @@ public class Test {
 			System.out.println("Veuillez entrer le n° associé au composant rechercher pour plus d'information:");
 			String str;
 			str = sc.nextLine();
-			System.out.println(B.get(Integer.parseInt(str)));
+			System.out.println(C.get(Integer.parseInt(str)));
 			System.out.println("Veuillez entrer le n° associé au Batiment rechercher pour plus d'information:");
 			str = sc.nextLine(); 
 			System.out.println(B.get(Integer.parseInt(str)));
@@ -327,17 +327,17 @@ public class Test {
                 
 				String cat = ((Central)ex).getCategory();
 				System.out.println("\nLa centrale étant de type "+cat+", elle peut utiliser les carburants suivant:\n");
-				for(int i;i<C.size();i++){
+				for(int i = 0;i<C.size();i++){
 					if(C.get(i) instanceof Fuel){
 						Fuel rf=(Fuel) C.get(i);
 						if(rf.getCategory().equals(cat))
-							System.out.println(rf2);
+							System.out.println(rf);
 					}
 					if(C.get(i) instanceof ResourceFuel)
 					{
 						ResourceFuel rf2=(ResourceFuel)C.get(i);
 						if(rf2.getCategory().equals(cat))
-							System.out.println(rf3);
+							System.out.println(rf2);
 					}
 				}
 				
