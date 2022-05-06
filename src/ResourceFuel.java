@@ -26,8 +26,8 @@ public class ResourceFuel extends Resource implements IsFuel{
     public String toString()
     {
         String s = "\n Resource minedby :\n";
-        for(Building b:tabE)
-            s += b;
+       /*  for(Building b:tabE)
+            s += b; */
         return super.toString() + ", categorie " +category + ", valeur " +value + s;
     }
 
