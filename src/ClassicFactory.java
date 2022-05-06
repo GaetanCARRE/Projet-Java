@@ -37,7 +37,7 @@ public class ClassicFactory extends Building {
 
     public String toString() {
         String s = "\nCe bâtiment peut avoir pour recette :\n";
-        for(Recette r:this.trec)
+        for(Recette r:super.trec)
             s+= r+"\n";
         return "Usine Classic  : " + name + ", usage : " +usage + ", drain : " +drain + ", speed : "+speed + s;
         
