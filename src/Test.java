@@ -166,6 +166,16 @@ public class Test {
 												Resource r = (Resource)C.get(m);
 												r.addE((Building)C.get(k));
 											}
+											else
+											{
+												if( C.get(k) instanceof ClassicFactory)
+												{
+													ClassicFactory cf = (ClassicFactory)C.get(k);
+													e.addR((Resource)C.get(m));
+													Resource r = (Resource)C.get(m);
+													r.addE((Building)C.get(k));
+												}
+											}
 										}
 									}
 										
@@ -234,7 +244,14 @@ public class Test {
 								if(((Extracteur)C.get(q)).getResource().size() >0)
 								{
 									recipe.add_Component_out(((Extractor)C.get(q)).getResource().get(0),1.);//n'ayant pas la donnée quantité out de l'élèment produit pour chaque intervalle time on le suppose à 1
+									C.get(q).trec.add(recipe);
 									
+								}
+							if(C.get(q) instanceof ClassicFactory)
+								if (((ClassicFactory)C.get(q)).getResource().size()>0)
+								{
+									recipe.add_Component_out(((ClassicFactory)C.get(q)).getResource().get(0),1.);
+									C.get(q).trec.add(recipe);
 								}
 						}
 					}
@@ -251,6 +268,11 @@ public class Test {
 							while(!C.get(q).getId().equals(id_ingred))
 							q++;
 							recipe.add_Component_out(C.get(q),qte);
+							for(int j=0;j<C.get(q).getE().size();j++)
+							{
+								((Extracteur)C.get(q).getE().get(j)).trec.add(recipe);
+							}
+							
 						}
 					}
 			}
@@ -288,6 +310,8 @@ public class Test {
 			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +(Extra.size()-1)+"):");
 			str = sc.nextLine();
 			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
+			for(int i =0;i< Extra.get(Integer.parseInt(str)).trec.size();i++)
+				System.out.println(Extra.get(Integer.parseInt(str)).trec.get(i));
 			/*ajouter le code qui permet d'afficher toutes les recette associé à cette extractor, donc d'id == à l'extractor ou de ressource produite == ressource associé àl'extractor*/
 			sc.close();
 		}
