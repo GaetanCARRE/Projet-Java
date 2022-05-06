@@ -344,7 +344,40 @@ public class Test {
 			}
 			System.out.println("Veuillez entrer le n° associé à la recette rechercher pour plus d'informations:");
 			str = sc.nextLine();
-			System.out.println(C.get(Integer.parseInt(str)));
+			System.out.println(R.get(Integer.parseInt(str)));
+			Recette rec = R.get(Integer.parseInt(str));
+			System.out.println("la recette "+rec.getName()+" nécessite les ressources suivantes:");
+			ArrayList<Component> tabin = rec.getlistin();
+			for(int i=0;i<tabin.size();i++)
+			{
+				if( tabin.get(i) instanceof Resource)
+					System.out.println(tabin.get(i));
+				else
+				{
+					int j = 0;
+					while(j<R.size())
+					{
+						ArrayList<Component> tabout= R.get(j).getlistout();
+						for(int k=0;k<tabout.size();k++)
+						{
+							if(tabin.get(i).equals(tabout.get(k)))
+							{
+								q = j;
+								j= R.size();
+							}
+							   
+						}
+						
+						j++;
+					}
+					tabout = R.get(q).getlistin();//contient désormais les composant a ajouter a notre arraylist tabin
+					for(int k=0;k<tabin.size();k++)
+					{
+						tabin.add(tabout.get(k));
+					}
+				}
+			}
+			
 			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +(Extra.size()-1)+"):");
 			str = sc.nextLine();
 			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
