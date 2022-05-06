@@ -13,6 +13,10 @@ public class Resource extends Component {
         if((E instanceof ExtractorSE)||(E instanceof Building))
             tabE.add(E);
     }
+    public ArrayList<Building> getE()
+    {
+        return tabE;
+    }
 
     public String toString()
     {
