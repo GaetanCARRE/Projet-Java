@@ -25,7 +25,10 @@ public class Extractor extends ClassicFactory implements Extracteur{
     }*/
 
     public String toString() {
-        return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed;
+        String s = "\nCe bâtiment peut avoir pour recette :\n";
+        for(recipe r:this.tres)
+            s+= r+"\n";
+        return "Extracteur : " + name +  ", usage : " +usage + ", drain : " +drain + ", speed : "+speed + s;
     }
     /*public ArrayList<Resource> getResource()
     {
