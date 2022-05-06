@@ -321,6 +321,13 @@ public class Test {
 			System.out.println("entrer le n° associé a l'extracteur rechercher(qui se situe entre 0 et " +(Extra.size()-1)+"):");
 			str = sc.nextLine();
 			System.out.println("l'"+Extra.get(Integer.parseInt(str)));
+			Component ex = Extra.get(Integer.parseInt(str));
+			if(ex.trec.size()>0)
+			{
+				System.out.println("\nLe bâtiments a pour recette :\n");
+				for(recette r : ex.trec)
+					System.out.println(r);
+			}					 
 			
 			/*ajouter le code qui permet d'afficher toutes les recette associé à cette extractor, donc d'id == à l'extractor ou de ressource produite == ressource associé àl'extractor*/
 			sc.close();
