@@ -19,7 +19,7 @@ public class ExtractorSE extends Building implements Extracteur {
 
     public String toString() {
         String s = "\nCe bâtiment peut avoir pour recette :\n";
-        for(Recette r:this.trec)
+        for(Recette r:super.trec)
             s+= r+"\n";
         return super.toString() +",extrait la ressource "+/*r+*/ " à la vitesse " + speed + s;
     }
