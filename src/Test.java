@@ -365,16 +365,20 @@ public class Test {
 							{
 								q = j;
 								j= R.size();
+								k=tabout.size();
 							}
 							   
 						}
 						
 						j++;
 					}
-					tabout = R.get(q).getlistin();//contient désormais les composant a ajouter a notre arraylist tabin
-					for(int k=0;k<tabin.size();k++)
-					{
-						tabin.add(tabout.get(k));
+					if(q<R.size()){
+						tabout = R.get(q).getlistin();//contient désormais les composant a ajouter a notre arraylist tabin
+					
+						for(int k=0;k<tabin.size();k++)					
+						{	
+							tabin.add(tabout.get(k));	
+						}
 					}
 				}
 			}
